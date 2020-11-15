@@ -2,6 +2,7 @@ const express = require("express");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const productRouters = require('./routes/product.route');
+const networkRouters = require('./routes/network.route');
 
 const app = express();
 
@@ -35,12 +36,8 @@ db.mongoose
     process.exit();
   });
 
-// simple route
-app.get("/", (req, res) => {
-  res.json({ message: "Welcome to gazapus application." });
-});
-
 app.use('/api/v1/product', productRouters);
+app.use('/api/v1/network', networkRouters);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
