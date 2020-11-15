@@ -3,6 +3,7 @@ const bodyParser = require("body-parser");
 const cors = require("cors");
 const productRouters = require('./routes/product.route');
 const networkRouters = require('./routes/network.route');
+const newsRouter = require('./routes/news.route');
 
 const app = express();
 
@@ -38,6 +39,7 @@ db.mongoose
 
 app.use('/api/v1/product', productRouters);
 app.use('/api/v1/network', networkRouters);
+app.use('/api/v1/news', newsRouter);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);

@@ -7,5 +7,6 @@ db.mongoose = mongoose;
 db.url = dbConfig.url;
 db.products = require("./product.model.js")(mongoose);
 db.networks = require("./network.model.js")(mongoose);
+db.news = require("./news.model.js")(mongoose);
 
 module.exports = db;
