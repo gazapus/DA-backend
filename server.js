@@ -67,7 +67,12 @@ app.use('/api/v1/network', networkRouters);
 app.use('/api/v1/news', newsRouter);
 
 require('./routes/auth.route')(app);
-require('./routes/user.route')(app);
+
+let test = require('./routes/user.route');
+let header = require('./middleware/header');
+
+app.use(header);
+app.use('/api/v1/test', test);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
