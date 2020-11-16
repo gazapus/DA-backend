@@ -4,6 +4,9 @@ const cors = require("cors");
 const productRouters = require('./routes/product.route');
 const networkRouters = require('./routes/network.route');
 const newsRouter = require('./routes/news.route');
+let headerMiddleware = require('./middleware/header');
+let authRoutes = require('./routes/auth.route');
+let testRoutes = require('./routes/user.route');
 
 const app = express();
 
@@ -65,14 +68,9 @@ function initial() {
 app.use('/api/v1/product', productRouters);
 app.use('/api/v1/network', networkRouters);
 app.use('/api/v1/news', newsRouter);
-
-require('./routes/auth.route')(app);
-
-let test = require('./routes/user.route');
-let header = require('./middleware/header');
-
-app.use(header);
-app.use('/api/v1/test', test);
+app.use(headerMiddleware);
+app.use('/api/v1/test', testRoutes);
+app.use('/api/v1/auth', authRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
