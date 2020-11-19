@@ -5,12 +5,7 @@ let schema = new Schema({
     username: String,
     email: String,
     password: String,
-    roles: [
-        {
-            type: mongoose.Schema.Types.ObjectId,
-            ref: "Role"
-        }
-    ]
+    isAdmin: Boolean
 })
 
 module.exports = mongoose.model("User", schema);
