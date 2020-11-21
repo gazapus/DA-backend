@@ -12,7 +12,7 @@ const app = express();
 
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
-
+/*
 var allowedOrigins = [
   'http://localhost:3000', 
   `http://localhost:${PORT}`,
@@ -30,6 +30,8 @@ var corsOptions = {
 };
 
 app.use(cors(corsOptions));
+*/
+app.use(cors());
 
 // parse requests of content-type - application/json
 app.use(bodyParser.json());
