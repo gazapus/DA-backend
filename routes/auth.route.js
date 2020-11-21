@@ -7,4 +7,6 @@ router.post("/signin", controller.signin);
 router.get("/check", [authJwt.verifyToken], controller.authorizedAccess);
 router.get("/check/admin", [authJwt.verifyToken, authJwt.isAdmin], controller.authorizedAccess);
 
+//router.post("/signup2", controller.signup);
+
 module.exports = router;
