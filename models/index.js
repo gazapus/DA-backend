@@ -4,7 +4,6 @@ mongoose.Promise = global.Promise;
 
 const db = {};
 db.mongoose = mongoose;
-//db.url = `mongodb+srv://${dbConfig.HOST}:${dbConfig.PORT}/${dbConfig.DB}`
 db.url = dbConfig.URI;
 db.products = require("./product.model.js")(mongoose);
 db.networks = require("./network.model.js")(mongoose);
