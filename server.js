@@ -13,7 +13,11 @@ const app = express();
 // set port, listen for requests
 const PORT = process.env.PORT || 8080;
 
-var allowedOrigins = ['http://localhost:3000', `http://localhost:${PORT}`];
+var allowedOrigins = [
+  'http://localhost:3000', 
+  `http://localhost:${PORT}`,
+  'https://decoracionesaly-front.herokuapp.com/'
+];
 
 var corsOptions = {
   origin: function (origin, callback) {
