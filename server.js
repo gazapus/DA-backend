@@ -7,30 +7,12 @@ const newsRouter = require('./routes/news.route');
 let headerMiddleware = require('./middleware/header');
 let authRoutes = require('./routes/auth.route');
 let userRoutes = require('./routes/user.route');
+let mailRoutes = require('./routes/mail.route');
 
 const app = express();
 
-// set port, listen for requests
 const PORT = process.env.PORT || 8080;
-/*
-var allowedOrigins = [
-  'http://localhost:3000', 
-  `http://localhost:${PORT}`,
-  'https://decoracionesaly-front.herokuapp.com/'
-];
 
-var corsOptions = {
-  origin: function (origin, callback) {
-    if (!origin) return callback(null, true);
-    if (allowedOrigins.indexOf(origin) === -1) {
-      return callback(new Error('Access denied from this origin'), false);
-    }
-    return callback(null, true);
-  }
-};
-
-app.use(cors(corsOptions));
-*/
 app.use(cors());
 
 // parse requests of content-type - application/json
@@ -65,6 +47,7 @@ app.use('/api/v1/news', newsRouter);
 app.use(headerMiddleware);
 app.use('/api/v1/user', userRoutes);
 app.use('/api/v1/auth', authRoutes);
+app.use('/api/v1/mail', mailRoutes);
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
