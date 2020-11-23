@@ -32,7 +32,7 @@ let isAdmin = (req, res, next) => {
 let verifyAdminQuantity = (req, res, next) => {
     User.find({isAdmin: true}, (err, users) => {
         if(err) return res.status(500).send({message: err});
-        if(users.length === 1) return res.status(400).send({message: "Cant delete all users"});
+        if(users.length === 1 && req.params.id === users[0].id) return res.status(400).send({message: "Cant delete all users"});
         next();
     })
 }
