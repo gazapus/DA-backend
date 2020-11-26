@@ -32,7 +32,7 @@ exports.signin = (req, res) => {
             );
             if (passwordIsValid) {
                 var token = jwt.sign({ id: user.id }, config.secret, {
-                    expiresIn: 86400 // 24 hours
+                    expiresIn: 43200 // 12 hours
                 });
                 res.status(200).send({
                     id: user._id,
