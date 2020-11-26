@@ -8,6 +8,7 @@ let headerMiddleware = require('./middleware/header');
 let authRoutes = require('./routes/auth.route');
 let userRoutes = require('./routes/user.route');
 let mailRoutes = require('./routes/mail.route');
+var createError = require('http-errors');
 
 const app = express();
 
@@ -37,9 +38,9 @@ db.mongoose
     process.exit();
   });
 
-  app.get('/', function (req, res) {
-    res.send('Hello Server!');
-  });
+app.get('/', function (req, res) {
+  res.send('Hello Server!');
+});
 
 app.use('/api/v1/product', productRouters);
 app.use('/api/v1/network', networkRouters);
@@ -48,6 +49,10 @@ app.use(headerMiddleware);
 app.use('/api/v1/user', userRoutes);
 app.use('/api/v1/auth', authRoutes);
 app.use('/api/v1/mail', mailRoutes);
+
+app.get('*', function(req, res) {
+  res.status(404).send({message: 'Not found'});
+});
 
 app.listen(PORT, () => {
   console.log(`Server is running on port ${PORT}.`);
