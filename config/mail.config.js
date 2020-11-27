@@ -29,7 +29,9 @@ function messageBody(name, email, message) {
     return `
     <p>${message}</p>
     <br/>
-    <em>${name}</em>
+    <strong>${name}</strong>
+    <br/>
+    <em>${email}</em>
     <br/>
     <a href="mailto:${email}?Subject=Respuesta%20Decoraciones%20Alybell">Responder</a>
     `

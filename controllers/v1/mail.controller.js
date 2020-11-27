@@ -6,14 +6,13 @@ exports.send_mail = function (req, res) {
 
     var mailOptions = {
         from: `"Decoraciones Alybell" <${config.remitent}>`,
-        to: req.body.email,
+        to: 'cristianv129@gmail.com',
         subject: 'Consulta de ' + req.body.name,
         html: config.messageBody(req.body.name, req.body.email, req.body.message)
     };
 
     transporter.sendMail(mailOptions)
         .then(response => {
-            console.log(response);
             return res.status(200).send();
         })
         .catch(err => {
