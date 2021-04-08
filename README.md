@@ -10,6 +10,8 @@ Estas instrucciones te permitirán obtener una copia del proyecto en funcionamie
 
  - Node.js
  - MongoDB
+
+ 
  
 ### Instalación 🔧
 
@@ -21,7 +23,7 @@ Y  luego el comando
 
 > npm start
 
-Accede al puerto [8080](http://localhost:3000) para ver obtener las consultas
+Accede al puerto [8080](http://localhost:8080) para ver obtener las consultas
 
 ## Construido con 🛠️
 
