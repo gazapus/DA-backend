@@ -6,7 +6,7 @@ exports.send_mail = function (req, res) {
 
     var mailOptions = {
         from: `"Decoraciones Alybell" <${config.remitent}>`,
-        to: 'cristianv129@gmail.com',
+        to: ['quinchaly@hotmail.com', 'cristianv129@gmail.com'],
         subject: 'Consulta de ' + req.body.name,
         html: config.messageBody(req.body.name, req.body.email, req.body.message)
     };
